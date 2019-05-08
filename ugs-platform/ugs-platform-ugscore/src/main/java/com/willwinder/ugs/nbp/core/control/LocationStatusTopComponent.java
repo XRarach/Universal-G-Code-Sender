@@ -39,7 +39,7 @@ import javax.swing.JScrollPane;
         //iconBase="SET/PATH/TO/ICON/HERE", 
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
-@TopComponent.Registration(mode = "bottom_left", openAtStartup = true)
+@TopComponent.Registration(mode = "bottom_left", openAtStartup = false)
 @ActionID(category = LocalizingService.LocationStatusCategory, id = LocalizingService.LocationStatusActionId)
 @ActionReference(path = LocalizingService.LocationStatusWindowPath)
 @TopComponent.OpenActionRegistration(

@@ -113,6 +113,7 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
         buttons.put(JogPanelButtonEnum.BUTTON_DIAG_XNEG_YPOS, createImageButton("icons/diag-xneg-ypos.png"));
         buttons.put(JogPanelButtonEnum.BUTTON_DIAG_XPOS_YNEG, createImageButton("icons/diag-xpos-yneg.png"));
         buttons.put(JogPanelButtonEnum.BUTTON_DIAG_XNEG_YNEG, createImageButton("icons/diag-xneg-yneg.png"));
+        buttons.put(JogPanelButtonEnum.BUTTON_FIRE, createImageButton("icons/fire.png", "Zapal", SwingConstants.CENTER, SwingConstants.RIGHT));;
 
         feedRateSpinner = new StepSizeSpinner();
         xyStepSizeSpinner = new StepSizeSpinner();
@@ -123,17 +124,17 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
         xyStepLabel = createSettingLabel(font, Localization.getString("platform.plugin.jog.stepSizeXY").toUpperCase());
         zStepLabel = createSettingLabel(font, Localization.getString("platform.plugin.jog.stepSizeZ").toUpperCase());
 
-        JButton unitToggleButton = new JButton("--");
+        /*JButton unitToggleButton = new JButton("--");
         unitToggleButton.setMinimumSize(new Dimension(MINIMUM_BUTTON_SIZE, MINIMUM_BUTTON_SIZE));
         unitToggleButton.setFocusable(false);
-        buttons.put(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT, unitToggleButton);
+        buttons.put(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT, unitToggleButton);*/
 
         if (isDarkLaF()) {
             buttons.values().forEach(button -> setForeground(ThemeColors.LIGHT_BLUE));
             feedRateLabel.setForeground(ThemeColors.ORANGE);
             xyStepLabel.setForeground(ThemeColors.ORANGE);
             zStepLabel.setForeground(ThemeColors.ORANGE);
-            unitToggleButton.setForeground(ThemeColors.LIGHT_BLUE);
+           // unitToggleButton.setForeground(ThemeColors.LIGHT_BLUE);
         }
     }
 
@@ -158,7 +159,7 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
     }
 
     public void setUnit(UnitUtils.Units unit) {
-        getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT).setText(unit.name());
+      //  getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT).setText(unit.name());
     }
 
     public void setUseStepSizeZ(boolean useStepSizeZ) {
@@ -185,7 +186,8 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
 
         configurationPanel.add(xyStepLabel, "growx");
         configurationPanel.add(xyStepSizeSpinner, "growx");
-        configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT), "grow, spany, wrap");
+        configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_FIRE), "grow, spany, wrap");
+       // configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT), "grow, spany, wrap");
 
         configurationPanel.add(zStepLabel, "growx, hidemode 3");
         configurationPanel.add(zStepSizeSpinner, "growx, hidemode 3, wrap");
@@ -379,11 +381,11 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
     }
 
     private void setFontSizeExtraSmall() {
-        JButton unitToggleButton = getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT);
+       /* JButton unitToggleButton = getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT);
         Font font = unitToggleButton.getFont().deriveFont(FONT_SIZE_LABEL_MEDIUM);
-        unitToggleButton.setFont(font);
+        unitToggleButton.setFont(font);*/
 
-        font = this.feedRateLabel.getFont().deriveFont(FONT_SIZE_LABEL_SMALL);
+       Font font = this.feedRateLabel.getFont().deriveFont(FONT_SIZE_LABEL_SMALL);
         this.feedRateLabel.setFont(font);
 
         font = this.xyStepLabel.getFont().deriveFont(FONT_SIZE_LABEL_SMALL);
@@ -394,11 +396,11 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
     }
 
     private void setFontSizeSmall() {
-        JButton unitToggleButton = getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT);
+     /*   JButton unitToggleButton = getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT);
         Font font = unitToggleButton.getFont().deriveFont(FONT_SIZE_LABEL_MEDIUM);
-        unitToggleButton.setFont(font);
+        unitToggleButton.setFont(font);*/
 
-        font = this.feedRateLabel.getFont().deriveFont(FONT_SIZE_LABEL_MEDIUM);
+      Font  font = this.feedRateLabel.getFont().deriveFont(FONT_SIZE_LABEL_MEDIUM);
         this.feedRateLabel.setFont(font);
 
         font = this.xyStepLabel.getFont().deriveFont(FONT_SIZE_LABEL_MEDIUM);
@@ -409,11 +411,11 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
     }
 
     private void setFontSizeNormal() {
-        JButton unitToggleButton = getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT);
+       /* JButton unitToggleButton = getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT);
         Font font = unitToggleButton.getFont().deriveFont(FONT_SIZE_LABEL_MEDIUM);
-        unitToggleButton.setFont(font);
+        unitToggleButton.setFont(font);*/
 
-        font = this.feedRateLabel.getFont().deriveFont(FONT_SIZE_LABEL_LARGE);
+       Font font = this.feedRateLabel.getFont().deriveFont(FONT_SIZE_LABEL_LARGE);
         this.feedRateLabel.setFont(font);
 
         font = this.xyStepLabel.getFont().deriveFont(FONT_SIZE_LABEL_LARGE);

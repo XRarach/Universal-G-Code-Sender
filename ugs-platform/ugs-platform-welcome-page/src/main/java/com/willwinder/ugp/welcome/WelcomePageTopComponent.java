@@ -40,7 +40,7 @@ import org.openide.windows.TopComponent;
         //iconBase="SET/PATH/TO/ICON/HERE", 
         persistenceType = TopComponent.PERSISTENCE_ONLY_OPENED
 )
-@TopComponent.Registration(mode = "editor", openAtStartup = true)
+@TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = WelcomePageTopComponent.Category, id = WelcomePageTopComponent.ActionId)
 @ActionReference(path = WelcomePageTopComponent.Path)
 @TopComponent.OpenActionRegistration(

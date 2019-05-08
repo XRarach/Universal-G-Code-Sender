@@ -39,10 +39,10 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
     private final JButton returnToZeroButton = new JButton(Localization.getString("mainWindow.swing.returnToZeroButton"));
     private final JButton softResetMachineControl = new JButton(Localization.getString("mainWindow.swing.softReset"));
     private final JButton performHomingCycleButton = new JButton(Localization.getString("mainWindow.swing.homeMachine"));
-    private final JButton requestStateInformation = new JButton(Localization.getString("mainWindow.swing.getState"));
+    //private final JButton requestStateInformation = new JButton(Localization.getString("mainWindow.swing.getState"));
     private final JButton killAlarmLock = new JButton(Localization.getString("mainWindow.swing.alarmLock"));
-    private final JButton toggleCheckMode = new JButton(Localization.getString("mainWindow.swing.checkMode"));
-    private final JButton helpButtonMachineControl = new JButton(Localization.getString("help"));
+    //private final JButton toggleCheckMode = new JButton(Localization.getString("mainWindow.swing.checkMode"));
+    //private final JButton helpButtonMachineControl = new JButton(Localization.getString("help"));
 
     /**
      * No-Arg constructor to make this control work in the UI builder tools
@@ -66,11 +66,11 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
 
     private void initComponents() {
 
-        helpButtonMachineControl.addActionListener(this::helpButtonMachineControl);
+       // helpButtonMachineControl.addActionListener(this::helpButtonMachineControl);
 
         softResetMachineControl.addActionListener(this::softResetMachineControl);
 
-        requestStateInformation.addActionListener(this::requestStateInformation);
+      //  requestStateInformation.addActionListener(this::requestStateInformation);
 
         returnToZeroButton.addActionListener(this::returnToZeroButton);
 
@@ -80,7 +80,7 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
 
         killAlarmLock.addActionListener(this::killAlarmLock);
 
-        toggleCheckMode.addActionListener(this::toggleCheckMode);
+       // toggleCheckMode.addActionListener(this::toggleCheckMode);
 
         MigLayout layout = new MigLayout("fill, wrap 2, inset 5, gap 2", "[50%][50%]");
         setLayout(layout);
@@ -91,9 +91,9 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
         add(softResetMachineControl, constraints);
         add(performHomingCycleButton, constraints);
         add(killAlarmLock, constraints);
-        add(requestStateInformation, constraints);
-        add(toggleCheckMode, constraints + ", wrap");
-        add(helpButtonMachineControl, constraints + ", span 2");
+      //  add(requestStateInformation, constraints);
+      //  add(toggleCheckMode, constraints + ", wrap");
+     //   add(helpButtonMachineControl, constraints + ", span 2");
     }
 
     @Override
@@ -118,9 +118,9 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
         this.killAlarmLock.setEnabled(enabled);
 
         boolean hasCheckMode = backend.isConnected() && backend.getController().getCapabilities().hasCheckMode();
-        this.toggleCheckMode.setEnabled(enabled && hasCheckMode);
+       // this.toggleCheckMode.setEnabled(enabled && hasCheckMode);
 
-        this.requestStateInformation.setEnabled(enabled);
+       // this.requestStateInformation.setEnabled(enabled);
     }
 
     private void killAlarmLock(java.awt.event.ActionEvent evt) {

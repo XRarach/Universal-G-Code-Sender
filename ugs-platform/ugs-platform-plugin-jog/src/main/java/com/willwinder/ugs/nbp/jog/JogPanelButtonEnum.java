@@ -34,5 +34,7 @@ public enum JogPanelButtonEnum {
     BUTTON_DIAG_XNEG_YPOS,
     BUTTON_DIAG_XPOS_YNEG,
     BUTTON_DIAG_XPOS_YPOS,
-    BUTTON_TOGGLE_UNIT
+    BUTTON_FIRE
+    //,
+    // BUTTON_TOGGLE_UNIT
 }

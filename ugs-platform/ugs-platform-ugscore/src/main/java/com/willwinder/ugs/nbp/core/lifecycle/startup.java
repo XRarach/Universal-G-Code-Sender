@@ -91,8 +91,8 @@ public class startup extends OptionProcessor implements Runnable {
                         + "but may also have bugs that still need to be fixed.\n"
                         + "\n"
                         + "If you encounter any problems, please report them on github.";
-                JOptionPane.showMessageDialog(new JFrame(), message,
-                        "", JOptionPane.INFORMATION_MESSAGE);
+               /* JOptionPane.showMessageDialog(new JFrame(), message,
+                        "", JOptionPane.INFORMATION_MESSAGE);*/
             }
         });
     }

@@ -231,13 +231,13 @@ public final class JogTopComponent extends TopComponent implements UGSEventListe
             case BUTTON_ZPOS:
                 jogService.adjustManualLocationZ(1);
                 break;
-            case BUTTON_TOGGLE_UNIT:
+           /* case BUTTON_TOGGLE_UNIT:
                 if (jogService.getUnits() == UnitUtils.Units.MM) {
                     jogService.setUnits(UnitUtils.Units.INCH);
                 } else {
                     jogService.setUnits(UnitUtils.Units.MM);
                 }
-                break;
+                break;*/
             default:
         }
     }
