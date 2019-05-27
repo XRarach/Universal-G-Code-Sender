@@ -188,7 +188,7 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
         configurationPanel.add(xyStepLabel, "growx");
         configurationPanel.add(xyStepSizeSpinner, "growx");
         configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_FIRE), "grow, spany, wrap");
-        configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_LOGO_DETA), "grow, spany, wrap");
+        //configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_LOGO_DETA), "grow, spany, wrap");
        // configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT), "grow, spany, wrap");
 
         configurationPanel.add(zStepLabel, "growx, hidemode 3");
