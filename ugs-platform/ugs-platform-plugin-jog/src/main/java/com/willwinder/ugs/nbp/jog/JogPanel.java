@@ -113,7 +113,8 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
         buttons.put(JogPanelButtonEnum.BUTTON_DIAG_XNEG_YPOS, createImageButton("icons/diag-xneg-ypos.png"));
         buttons.put(JogPanelButtonEnum.BUTTON_DIAG_XPOS_YNEG, createImageButton("icons/diag-xpos-yneg.png"));
         buttons.put(JogPanelButtonEnum.BUTTON_DIAG_XNEG_YNEG, createImageButton("icons/diag-xneg-yneg.png"));
-        buttons.put(JogPanelButtonEnum.BUTTON_FIRE, createImageButton("icons/fire.png", "Zapal", SwingConstants.CENTER, SwingConstants.RIGHT));;
+        buttons.put(JogPanelButtonEnum.BUTTON_FIRE, createImageButton("icons/fire.png", "Zapal", SwingConstants.CENTER, SwingConstants.RIGHT));
+        buttons.put(JogPanelButtonEnum.BUTTON_LOGO_DETA, createImageButton("icons/LogoDeta.png", "", SwingConstants.BOTTOM, SwingConstants.LEFT));
 
         feedRateSpinner = new StepSizeSpinner();
         xyStepSizeSpinner = new StepSizeSpinner();
@@ -187,6 +188,7 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
         configurationPanel.add(xyStepLabel, "growx");
         configurationPanel.add(xyStepSizeSpinner, "growx");
         configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_FIRE), "grow, spany, wrap");
+        configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_LOGO_DETA), "grow, spany, wrap");
        // configurationPanel.add(getButtonFromEnum(JogPanelButtonEnum.BUTTON_TOGGLE_UNIT), "grow, spany, wrap");
 
         configurationPanel.add(zStepLabel, "growx, hidemode 3");
