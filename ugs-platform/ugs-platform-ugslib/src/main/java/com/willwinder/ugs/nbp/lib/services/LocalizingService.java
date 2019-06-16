@@ -83,6 +83,13 @@ public class LocalizingService {
     public final static String JogControlActionId = "com.willwinder.ugs.nbp.core.control.JogControlTopComponent";
     public final static String JogControlCategory = CATEGORY_WINDOW;
 
+    public final static String VisualizerControlTitle = Localization.getString("platform.window.viscontrol", lang);
+    public final static String VisualizerControlTooltip = Localization.getString("platform.window.viscontrol.tooltip", lang);
+    public final static String VisualizerControlWindowPath = MENU_WINDOW;
+    public final static String VisualizerControlActionId = "com.willwinder.ugs.nbp.core.control.VisControlTopComponent";
+    public final static String VisualizerControlCategory = CATEGORY_WINDOW;
+
+
     public final static String FileBrowserTitle = Localization.getString("platform.window.filebrowser", lang);
     public final static String FileBrowserTooltip = Localization.getString("platform.window.filebrowser.tooltip", lang);
     public final static String FileBrowserWindowPath = MENU_WINDOW_CLASSIC;
