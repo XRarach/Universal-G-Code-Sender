@@ -21,8 +21,11 @@ package com.willwinder.ugs.nbp.jog;
 import com.willwinder.ugs.nbp.jog.actions.UseSeparateStepSizeAction;
 import com.willwinder.ugs.nbp.lib.lookup.CentralLookup;
 import com.willwinder.ugs.nbp.lib.services.LocalizingService;
+import com.willwinder.universalgcodesender.GrblController;
+import com.willwinder.universalgcodesender.gcode.util.GcodeUtils;
 import com.willwinder.universalgcodesender.listeners.ControllerListener;
 import com.willwinder.universalgcodesender.listeners.ControllerStatus;
+import com.willwinder.universalgcodesender.listeners.MessageType;
 import com.willwinder.universalgcodesender.listeners.UGSEventListener;
 import com.willwinder.universalgcodesender.model.Alarm;
 import com.willwinder.universalgcodesender.model.BackendAPI;
@@ -34,6 +37,7 @@ import com.willwinder.universalgcodesender.types.GcodeCommand;
 import com.willwinder.universalgcodesender.utils.SwingHelpers;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
+import org.openide.util.ImageUtilities;
 import org.openide.windows.TopComponent;
 
 import java.awt.*;
@@ -42,7 +46,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-import javax.swing.JPopupMenu;
+import javax.swing.*;
+
+import static com.willwinder.ugs.nbp.jog.JogPanelButtonEnum.BUTTON_FIRE;
 
 /**
  * The jog control panel in NetBeans
@@ -69,6 +75,7 @@ public final class JogTopComponent extends TopComponent implements UGSEventListe
     public static final String WINOW_PATH = LocalizingService.MENU_WINDOW_PLUGIN;
     public static final String CATEGORY = LocalizingService.CATEGORY_WINDOW;
     public static final String ACTION_ID = "com.willwinder.ugs.nbp.jog.JogTopComponent";
+    private static boolean FireButtonPressed = false;
 
     /**
      * The inteval in milliseconds to send jog commands to the controller when
@@ -231,6 +238,41 @@ public final class JogTopComponent extends TopComponent implements UGSEventListe
             case BUTTON_ZPOS:
                 jogService.adjustManualLocationZ(1);
                 break;
+
+            case BUTTON_FIRE:
+                if(FireButtonPressed == false)
+                {
+                    try {
+                        backend.sendGcodeCommand("S1M3");
+
+                        JButton buttonFireOld = jogPanel.getButtonFromEnum(JogPanelButtonEnum.BUTTON_FIRE);
+                        ImageIcon imageIcon = ImageUtilities.loadImageIcon("icons/fireRed.png", false);
+                        buttonFireOld.setIcon(imageIcon);
+                        buttonFireOld.setText("Zapal běží");
+
+                        jogPanel.buttons.replace(BUTTON_FIRE,buttonFireOld);
+
+                        FireButtonPressed = true;
+                    } catch (Exception e) { ; }
+                }
+                else
+                {
+                    try {
+                        backend.sendGcodeCommand("M5");
+
+                        JButton buttonFireOld = jogPanel.getButtonFromEnum(JogPanelButtonEnum.BUTTON_FIRE);
+                        ImageIcon imageIcon = ImageUtilities.loadImageIcon("icons/fire.png", false);
+                        buttonFireOld.setIcon(imageIcon);
+                        buttonFireOld.setText("Zapálit");
+
+                        jogPanel.buttons.replace(BUTTON_FIRE,buttonFireOld);
+
+                        FireButtonPressed = false;
+                    } catch (Exception e) { ; }
+                }
+
+                break;
+
            /* case BUTTON_TOGGLE_UNIT:
                 if (jogService.getUnits() == UnitUtils.Units.MM) {
                     jogService.setUnits(UnitUtils.Units.INCH);
@@ -241,6 +283,7 @@ public final class JogTopComponent extends TopComponent implements UGSEventListe
             default:
         }
     }
+
 
     @Override
     public void onButtonLongPressed(JogPanelButtonEnum button) {
@@ -289,7 +332,10 @@ public final class JogTopComponent extends TopComponent implements UGSEventListe
                     case BUTTON_ZPOS:
                         jogService.adjustManualLocation(0, 0, 1, stepSize);
                         break;
+
+
                     default:
+                        break;
                 }
             }, 0, LONG_PRESS_JOG_INTERVAL, TimeUnit.MILLISECONDS);
         }

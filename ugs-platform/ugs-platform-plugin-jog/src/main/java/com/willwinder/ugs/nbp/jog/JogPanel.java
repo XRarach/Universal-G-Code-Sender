@@ -69,7 +69,7 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
     /**
      * A map with all buttons that allows bi-directional lookups with key->value and value->key
      */
-    private final BiMap<JogPanelButtonEnum, JButton> buttons = HashBiMap.create();
+    public final BiMap<JogPanelButtonEnum, JButton> buttons = HashBiMap.create();
 
     /**
      * Labels
@@ -303,7 +303,7 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
      * @param buttonEnum the button enum
      * @return the button
      */
-    private JButton getButtonFromEnum(JogPanelButtonEnum buttonEnum) {
+    public JButton getButtonFromEnum(JogPanelButtonEnum buttonEnum) {
         return buttons.get(buttonEnum);
     }
 
@@ -331,7 +331,7 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
      *                           </ul>
      * @return the button
      */
-    private JButton createImageButton(String baseUri, String text, int verticalAligment, int horisontalAligment) {
+    public JButton createImageButton(String baseUri, String text, int verticalAligment, int horisontalAligment) {
         JButton button = createImageButton(baseUri);
         button.setText(text);
         button.setVerticalTextPosition(verticalAligment);
@@ -342,10 +342,10 @@ public class JogPanel extends JPanel implements SteppedSizeManager.SteppedSizeCh
     /**
      * Creates a image button.
      *
-     * @param baseUri the base uri of the image
+     * @param baseUri the base uri of the images
      * @return the button
      */
-    private JButton createImageButton(String baseUri) {
+    public JButton createImageButton(String baseUri) {
         ImageIcon imageIcon = ImageUtilities.loadImageIcon(baseUri, false);
         JButton button = new JButton(imageIcon);
         button.setMinimumSize(new Dimension(MINIMUM_BUTTON_SIZE, MINIMUM_BUTTON_SIZE));

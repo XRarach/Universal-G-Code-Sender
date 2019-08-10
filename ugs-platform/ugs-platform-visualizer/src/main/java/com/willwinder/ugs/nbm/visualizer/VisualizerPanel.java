@@ -167,16 +167,17 @@ public class VisualizerPanel extends JPanel implements UGSEventListener {
     }
     private JPanel createButtonsPanel() {
         JPanel visualizerButtonsPanel = new JPanel();
-        visualizerButtonsPanel.setLayout(new MigLayout("fill, wrap 1"   ));
+        visualizerButtonsPanel.setLayout(new MigLayout("fill"   ));
 
         visualizerButtonsPanel.add(getButtonFromEnum(VisualizerPanelButtonEnumR.BUTTON_RESET), "grow");
         visualizerButtonsPanel.add(getButtonFromEnum(VisualizerPanelButtonEnumR.BUTTON_LEFT), "grow");
         visualizerButtonsPanel.add(getButtonFromEnum(VisualizerPanelButtonEnumR.BUTTON_FRONT), "grow");
         visualizerButtonsPanel.add(getButtonFromEnum(VisualizerPanelButtonEnumR.BUTTON_TOP), "grow");
-        JPanel space = new JPanel();
+
+       /* JPanel space = new JPanel();
         space.setOpaque(false);
         visualizerButtonsPanel.add(space, "grow");
-
+*/
         visualizerButtonsPanel.add(getButtonFromEnum(VisualizerPanelButtonEnumR.BUTTON_LOGO), "grow");
         return visualizerButtonsPanel;
     }
