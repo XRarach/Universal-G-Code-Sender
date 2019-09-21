@@ -1,0 +1,13 @@
+export JAVA_HOME=/usr/lib/jvm/default-java
+/usr/lib/jvm/java-1.8.0-openjdk-amd64
+
+JAVA_HOME="/usr/lib/jvm/java-11-oracle/bin/java"
+
+
+Build command 
+mvn install -DskipTests=true && mvn nbm:run-platform -pl ugs-platform/application
+
+pack command 
+
+mvn install
+mvn package -pl ugs-platform
